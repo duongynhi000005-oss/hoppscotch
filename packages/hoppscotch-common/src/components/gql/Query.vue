@@ -235,7 +235,11 @@ onMounted(() => {
       selectedOperation.value = ast.definitions[0] as OperationDefinitionNode
       return
     }
-  } catch (_error) {}
+  } catch (_error) {
+    if (gqlQueryString.value.trim() === "") {
+      operationDefinitions.value = []
+    }
+  }
 })
 
 const cmQueryEditor = useCodemirror(
