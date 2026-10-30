@@ -66,9 +66,7 @@ export const parseCurlCommand = (curlCommand: string) => {
         ? args.dataUrlencode
         : [args.dataUrlencode]
 
-      const data = A.map(decodeURIComponent)(urlEncodedData)
-
-      return { ...args, d: data }
+      return { ...args, d: urlEncodedData }
     }),
     O.getOrElse(() => args)
   )
